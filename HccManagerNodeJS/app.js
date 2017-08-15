@@ -3,7 +3,7 @@ var debug = require('debug');
 var express = require('express');
 var path = require('path');
 var multer = require('multer');
-var port = process.argv[2] || 3000, url = process.argv[3] || '', basedir = process.argv[4] || '';
+var port = process.argv[2] || 3000, basedir = process.argv[3] || '';
 var hcc_1 = require("./hcc");
 var storage = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -13,7 +13,7 @@ var storage = multer.diskStorage({
         callback(null, file.originalname);
     }
 });
-var upload = multer({ storage: storage }).single('userPhoto');
+var upload = multer({ storage: storage }).single('file');
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +27,9 @@ app.get('/config', function (req, res) {
 });
 app.get('/entry', function (req, res) {
     hcc_1.hcc.getEntry(res, basedir, req.query.site + "/" + req.query.url);
+});
+app.get('/testupload', function (req, res) {
+    hcc_1.hcc.getEntry(res, __dirname, '/public/test.html');
 });
 app.post('/upload', function (req, res) {
     console.log("post");

@@ -45,6 +45,9 @@
     <TypeScriptCompile Include="typings\globals\serve-static\index.d.ts" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
+    <Content Include="public\test.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="README.md" />
     <Content Include="sites\404.html" />
     <Content Include="sites\leaflet\.hccConfig.json" />

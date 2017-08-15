@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
         callback(null, file.originalname);
     }
 });
-var upload = multer({ storage: storage }).single('userPhoto');
+var upload = multer({ storage: storage }).single('file');
 
 
 var app = express();
@@ -41,7 +41,9 @@ app.get('/config', function (req:Request, res:Response) {
 app.get('/entry', function (req: Request, res: Response) {
     hcc.getEntry(res, basedir, req.query.site + "/" + req.query.url);
 });
-
+app.get('/testupload', function (req: Request, res: Response) {
+    hcc.getEntry(res, __dirname, '/public/test.html');
+});
 
 app.post('/upload', function (req, res) {
     console.log("post");
