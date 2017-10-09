@@ -50,7 +50,9 @@
     </Content>
     <Content Include="README.md" />
     <Content Include="sites\404.html" />
-    <Content Include="sites\leaflet\.hccConfig.json" />
+    <Content Include="sites\leaflet\.hccConfig.json">
+      <Publish>False</Publish>
+    </Content>
     <Content Include="sites\leaflet\images\layers-2x.png" />
     <Content Include="sites\leaflet\images\layers.png" />
     <Content Include="sites\leaflet\images\marker-icon-2x.png" />
@@ -97,7 +99,9 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sites\leaflet\.hccExternal.js" />
+    <Content Include="sites\leaflet\.hccExternal.js">
+      <Publish>False</Publish>
+    </Content>
     <Compile Include="sites\leaflet\leaflet.js" />
     <Compile Include="sites\test\.hccExternal.js" />
     <Compile Include="sites\test\html\inhtml.js" />

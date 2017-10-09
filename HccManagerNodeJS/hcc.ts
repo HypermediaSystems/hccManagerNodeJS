@@ -44,7 +44,7 @@ export module hcc {
         // response.end("get entry for " + url);
         sendFile(response, basedir + url, false);
     }
-    function sendFile(response: any, filename: string, fileNotFound: boolean) {
+    export function sendFile(response: any, filename: string, fileNotFound: boolean) {
         // Setting up MIME-Type (YOU MAY NEED TO ADD MORE HERE) <--------
         var contentTypesByExtension = {
             '.html': 'text/html',
@@ -67,7 +67,7 @@ export module hcc {
                 response.end();
                 return;
             }
-            if (fileNotFound === true) {
+            if (fileNotFound ) {
                 response.writeHead(404, { 'Content-Type': 'text/plain' });
                 response.write('Not found ' + filename + '\n');
                 response.end();

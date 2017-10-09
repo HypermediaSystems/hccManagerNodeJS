@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var glob = require("glob");
 var path = require("path");
@@ -62,7 +63,7 @@ var hcc;
                 response.end();
                 return;
             }
-            if (fileNotFound === true) {
+            if (fileNotFound) {
                 response.writeHead(404, { 'Content-Type': 'text/plain' });
                 response.write('Not found ' + filename + '\n');
                 response.end();
@@ -82,6 +83,7 @@ var hcc;
             response.end();
         });
     }
+    hcc.sendFile = sendFile;
     function getSiteList(response, basedir) {
         var dirs = [];
         fs.readdir(basedir, function (err, files) {
@@ -118,6 +120,7 @@ var hcc;
                 // Redirect the browser to the 404 page
                 filename = path.join(basedir, '404.html');
                 fileNotFound = true;
+                // If the requested URL is a folder, like http://localhost:8000/catpics
             }
             else if (fs.statSync(filename).isDirectory()) {
                 // Output a green line to the console explaining what folder was requested

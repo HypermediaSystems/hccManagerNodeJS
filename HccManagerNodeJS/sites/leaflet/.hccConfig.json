@@ -1,11 +1,34 @@
 ﻿{
-  "url": "http://wwwleaflettest.xxx",
-  "list": "list",
-  "listx": "[]",
-
-  "externalURLs": [
-    "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  "url": "http://test.leaflet.xxx",
+  "name": "LeaflonTest",
+  "zipped": "0",
+  "files": [
+    {
+      "url": "index.html",
+      "zipped": "1",
+      "replace": true,
+      "defaulthtml": true
+    },
+    {
+      "url": "leaflet.css",
+      "zipped": "1"
+    },
+    {
+      "url": "leaflet.js",
+      "zipped": "1"
+    },
+    { "url": "images/layers.png" },
+    { "url": "images/layers-2x.png" },
+    { "url": "images/marker-icon.png" },
+    { "url": "images/marker-icon-2x.png" },
+    { "url": "images/marker-shadow.png" }
   ],
-  "external2": ".hccExternal.js",
-  "external": "external"
-}
+  "externalURL": [
+    { "url": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" }
+  ],
+
+      "externalJS": {
+        "js": ".hccExternal.js"
+      }
+
+    }
